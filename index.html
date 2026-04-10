@@ -8,108 +8,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
 <style>
   :root {
-    --bg:       #0a0a0f;
-    --surface:  #11111a;
-    --card:     #16161f;
-    --border:   #ffffff0f;
-    --accent:   #e8ff00;
-    --accent2:  #00f5c4;
-    --danger:   #ff4466;
-    --text:     #e8e8f0;
-    --muted:    #5a5a72;
-    --radius:   14px;
+    --bg:      #0a0a0f;
+    --surface: #11111a;
+    --card:    #16161f;
+    --border:  #ffffff0f;
+    --accent:  #e8ff00;
+    --accent2: #00f5c4;
+    --danger:  #ff4466;
+    --text:    #e8e8f0;
+    --muted:   #5a5a72;
+    --radius:  14px;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
+    background: var(--bg); color: var(--text);
+    font-family: 'DM Sans', sans-serif; min-height: 100vh; overflow-x: hidden;
   }
-
   body::before {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
+    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background:
       radial-gradient(ellipse 80vw 60vh at 50% -10%, #e8ff0012 0%, transparent 70%),
       radial-gradient(ellipse 50vw 40vh at 100% 80%, #00f5c408 0%, transparent 60%);
-    pointer-events: none;
   }
-
   body::after {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
     background-size: 60px 60px;
-    pointer-events: none;
     mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
   }
-
   .page { position: relative; z-index: 1; }
 
-  /* ── SETTINGS BAR ── */
-  .settings-bar {
-    max-width: 720px;
-    margin: 1.5rem auto 0;
-    padding: 0 1rem;
-    animation: fadeDown .5s ease both;
-  }
-
-  .settings-toggle {
-    background: none; border: 1px solid var(--border);
-    color: var(--muted); font-family: 'JetBrains Mono', monospace;
-    font-size: .68rem; letter-spacing: .1em; text-transform: uppercase;
-    padding: .4rem .8rem; border-radius: 8px; cursor: pointer;
-    transition: all .2s; display: flex; align-items: center; gap: .4rem;
-    margin-left: auto;
-  }
-  .settings-toggle:hover { border-color: var(--accent2); color: var(--accent2); }
-
-  .settings-panel {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.2rem 1.5rem;
-    margin-top: .6rem; display: none; animation: fadeUp .3s ease both;
-  }
-  .settings-panel.open { display: block; }
-
-  .settings-title {
-    font-family: 'JetBrains Mono', monospace; font-size: .68rem;
-    color: var(--accent2); letter-spacing: .12em; text-transform: uppercase;
-    margin-bottom: .8rem;
-  }
-
-  .settings-row { display: flex; gap: .6rem; align-items: center; }
-
-  .settings-input {
-    flex: 1; background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: .7rem 1rem; color: var(--text);
-    font-family: 'JetBrains Mono', monospace; font-size: .8rem;
-    outline: none; transition: border-color .2s, box-shadow .2s;
-  }
-  .settings-input::placeholder { color: var(--muted); }
-  .settings-input:focus { border-color: var(--accent2); box-shadow: 0 0 0 3px #00f5c418; }
-
-  .server-status {
-    display: flex; align-items: center; gap: .5rem; margin-top: .8rem;
-    font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--muted);
-  }
-  .s-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--muted); flex-shrink: 0; transition: background .3s;
-  }
-  .s-dot.online  { background: var(--accent2); animation: blink 2s ease infinite; }
-  .s-dot.offline { background: var(--danger); }
-  .s-dot.checking{ background: var(--accent); }
-
   /* ── HEADER ── */
-  header { padding: 2.5rem 2rem 1.5rem; text-align: center; animation: fadeDown .6s ease both; }
-
+  header { padding: 3rem 2rem 1.5rem; text-align: center; animation: fadeDown .6s ease both; }
   .logo-badge {
     display: inline-flex; align-items: center; gap: .5rem;
     background: var(--accent); color: #000;
@@ -117,31 +48,49 @@
     letter-spacing: .15em; padding: .3rem .8rem; border-radius: 2rem;
     margin-bottom: 1.2rem; text-transform: uppercase;
   }
-
   h1 {
     font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 12vw, 9rem);
     line-height: .9; letter-spacing: .02em;
     background: linear-gradient(170deg, #fff 30%, var(--accent) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-
   .tagline { margin-top: .8rem; color: var(--muted); font-size: .95rem; letter-spacing: .05em; text-transform: uppercase; }
+
+  /* ── OFFLINE BANNER ── */
+  .offline-banner {
+    max-width: 720px; margin: 1rem auto 0; padding: 0 1rem; display: none;
+  }
+  .offline-banner.visible { display: block; }
+  .offline-inner {
+    background: #ff446612; border: 1px solid #ff446635;
+    border-radius: 10px; padding: .9rem 1.2rem;
+    display: flex; align-items: center; gap: .8rem;
+  }
+  .offline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--danger); flex-shrink: 0; animation: blink 1.2s ease infinite; }
+  .offline-text { font-size: .83rem; color: var(--danger); }
+  .offline-text strong { font-weight: 600; }
+
+  /* ── ONLINE INDICATOR (top right of card) ── */
+  .server-chip {
+    display: inline-flex; align-items: center; gap: .4rem;
+    font-family: 'JetBrains Mono', monospace; font-size: .62rem;
+    color: var(--muted); letter-spacing: .08em;
+    padding: .25rem .6rem; border-radius: 6px;
+    border: 1px solid var(--border); float: right; margin-top: -.2rem;
+  }
+  .server-chip .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); }
+  .server-chip.online .chip-dot { background: var(--accent2); animation: blink 2s ease infinite; }
+  .server-chip.online { border-color: #00f5c425; color: var(--accent2); }
 
   /* ── MAIN CARD ── */
   .main-card { max-width: 720px; margin: 1.5rem auto 4rem; padding: 0 1rem; animation: fadeUp .7s ease .1s both; }
-
   .glass { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); backdrop-filter: blur(20px); }
 
-  /* ── URL INPUT ── */
-  .input-section { padding: 1.8rem; }
-
-  .input-label {
-    font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--accent);
-    letter-spacing: .12em; text-transform: uppercase; margin-bottom: .7rem; display: block;
-  }
-
+  /* ── INPUT ── */
+  .input-section { padding: 1.8rem 1.8rem 1.5rem; }
+  .input-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .7rem; }
+  .input-label { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--accent); letter-spacing: .12em; text-transform: uppercase; }
   .url-row { display: flex; gap: .6rem; }
-
   .url-input {
     flex: 1; background: var(--surface); border: 1px solid var(--border);
     border-radius: 10px; padding: .9rem 1.1rem; color: var(--text);
@@ -151,6 +100,7 @@
   .url-input::placeholder { color: var(--muted); }
   .url-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #e8ff0018; }
 
+  /* ── BUTTONS ── */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
     padding: .9rem 1.4rem; border-radius: 10px; border: none; cursor: pointer;
@@ -159,91 +109,51 @@
   }
   .btn:active { transform: scale(.96); }
   .btn:disabled { opacity: .4; cursor: not-allowed; }
-  .btn-primary { background: var(--accent); color: #000; font-weight: 700; }
-  .btn-primary:hover:not(:disabled) { box-shadow: 0 0 24px #e8ff0055; opacity: .9; }
-  .btn-accent2 { background: var(--accent2); color: #000; font-weight: 700; }
-  .btn-accent2:hover:not(:disabled) { box-shadow: 0 0 24px #00f5c455; opacity: .9; }
-  .btn-ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
-  .btn-ghost:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
-  .btn-sm { padding: .5rem .9rem; font-size: .8rem; border-radius: 8px; }
+  .btn-primary  { background: var(--accent); color: #000; font-weight: 700; }
+  .btn-primary:hover:not(:disabled)  { box-shadow: 0 0 24px #e8ff0055; opacity: .9; }
+  .btn-accent2  { background: var(--accent2); color: #000; font-weight: 700; }
+  .btn-accent2:hover:not(:disabled)  { box-shadow: 0 0 24px #00f5c455; opacity: .9; }
+  .btn-ghost    { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .btn-ghost:hover:not(:disabled)    { border-color: var(--accent); color: var(--accent); }
 
   .divider { height: 1px; background: var(--border); margin: 0 1.8rem; }
 
-  /* ── NO SERVER WARNING ── */
-  .no-server {
-    margin: 0 1.8rem 1.5rem; padding: 1rem 1.2rem;
-    background: #e8ff0008; border: 1px solid #e8ff0025;
-    border-radius: 10px; display: none;
-  }
-  .no-server.visible { display: block; }
-  .no-server-title {
-    font-family: 'JetBrains Mono', monospace; font-size: .7rem;
-    color: var(--accent); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .4rem;
-  }
-  .no-server p { font-size: .83rem; color: var(--muted); line-height: 1.6; }
-  .no-server strong { color: var(--text); }
-
   /* ── ERROR ── */
   .error-bar {
-    margin: 0 1.8rem 1.5rem; padding: .8rem 1rem;
+    margin: 0 1.8rem 1.4rem; padding: .8rem 1rem;
     background: #ff446615; border: 1px solid #ff446640;
     border-radius: 8px; color: var(--danger); font-size: .85rem;
     display: none; gap: .5rem; align-items: flex-start;
   }
   .error-bar.visible { display: flex; }
 
-  /* ── INFO SECTION ── */
+  /* ── INFO ── */
   .info-section { padding: 1.8rem; display: none; animation: fadeUp .4s ease both; }
   .info-section.visible { display: block; }
-
   .media-card { display: flex; gap: 1.2rem; align-items: flex-start; margin-bottom: 1.5rem; }
-
   .thumb-wrap {
     position: relative; flex-shrink: 0; width: 130px; height: 82px;
     border-radius: 8px; overflow: hidden; background: var(--surface); border: 1px solid var(--border);
   }
   .thumb-wrap img { width: 100%; height: 100%; object-fit: cover; }
   .thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--muted); }
-
   .media-meta { flex: 1; min-width: 0; }
-  .media-title {
-    font-size: 1rem; font-weight: 500; line-height: 1.3; margin-bottom: .4rem;
-    overflow: hidden; text-overflow: ellipsis;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-  }
+  .media-title { font-size: 1rem; font-weight: 500; line-height: 1.3; margin-bottom: .4rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
   .meta-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
-  .meta-pill {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 6px; padding: .25rem .6rem;
-    font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted);
-  }
+  .meta-pill { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: .25rem .6rem; font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted); }
   .meta-pill span { color: var(--text); }
 
-  .mode-toggle {
-    display: flex; gap: .5rem; margin-bottom: 1.2rem;
-    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: .3rem;
-  }
-  .mode-btn {
-    flex: 1; padding: .55rem; border-radius: 7px; border: none;
-    background: transparent; color: var(--muted);
-    font-family: 'DM Sans', sans-serif; font-size: .88rem; font-weight: 500;
-    cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; gap: .4rem;
-  }
+  /* ── MODE ── */
+  .mode-toggle { display: flex; gap: .5rem; margin-bottom: 1.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: .3rem; }
+  .mode-btn { flex: 1; padding: .55rem; border-radius: 7px; border: none; background: transparent; color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: .88rem; font-weight: 500; cursor: pointer; transition: all .2s; display: flex; align-items: center; justify-content: center; gap: .4rem; }
   .mode-btn.active { background: var(--card); color: var(--accent); border: 1px solid var(--border); box-shadow: 0 2px 8px #0006; }
 
+  /* ── FORMATS ── */
   .format-label { font-family: 'JetBrains Mono', monospace; font-size: .68rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: .6rem; }
-  #formatGrid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: .4rem; margin-bottom: 1.2rem; max-height: 160px; overflow-y: auto; padding-right: 2px;
-  }
+  #formatGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: .4rem; margin-bottom: 1.2rem; max-height: 160px; overflow-y: auto; padding-right: 2px; }
   #formatGrid::-webkit-scrollbar { width: 4px; }
   #formatGrid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-
-  .format-chip {
-    padding: .45rem .5rem; border-radius: 7px; border: 1px solid var(--border);
-    background: var(--surface); color: var(--muted); font-size: .72rem; font-weight: 500;
-    cursor: pointer; text-align: center; transition: all .15s; line-height: 1.3;
-  }
+  .format-chip { padding: .45rem .5rem; border-radius: 7px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: .72rem; font-weight: 500; cursor: pointer; text-align: center; transition: all .15s; line-height: 1.3; }
   .format-chip:hover { border-color: var(--accent2); color: var(--accent2); }
   .format-chip.selected { border-color: var(--accent2); background: #00f5c415; color: var(--accent2); }
   .format-chip .chip-ext { display: block; font-family: 'JetBrains Mono', monospace; font-size: .6rem; color: var(--muted); margin-top: 2px; }
@@ -255,20 +165,24 @@
   .progress-section { padding: 1.8rem; display: none; animation: fadeUp .4s ease both; }
   .progress-section.visible { display: block; }
   .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; display: flex; align-items: center; gap: .4rem; }
+  .progress-label { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; display: flex; align-items: center; gap: .5rem; }
   .progress-pct { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--accent); line-height: 1; }
-
   .bar-track { height: 6px; background: var(--surface); border-radius: 99px; overflow: hidden; margin-bottom: .8rem; }
-  .bar-fill {
-    height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent));
-    border-radius: 99px; width: 0%; transition: width .4s cubic-bezier(.25,.8,.25,1); position: relative;
-  }
-  .bar-fill::after {
-    content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40px;
-    background: linear-gradient(90deg, transparent, #ffffff44); animation: shimmer 1.2s infinite;
-  }
-  @keyframes shimmer { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
-  .progress-file { font-size: .82rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 99px; width: 0%; transition: width .4s cubic-bezier(.25,.8,.25,1); position: relative; }
+  .bar-fill::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40px; background: linear-gradient(90deg, transparent, #ffffff44); animation: shimmer 1.2s infinite; }
+  @keyframes shimmer { 0%,100%{opacity:0} 50%{opacity:1} }
+  .progress-sub { font-size: .82rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ── SAVING STATE (replaces done screen) ── */
+  .saving-section { padding: 1.8rem; display: none; animation: fadeUp .4s ease both; }
+  .saving-section.visible { display: block; }
+  .saving-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding: .5rem 0 .5rem; }
+  .saving-icon { font-size: 2.8rem; animation: bounce 1s ease infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .saving-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--accent2); letter-spacing: .05em; }
+  .saving-sub { color: var(--muted); font-size: .82rem; }
+  .saving-bar-track { width: 100%; height: 4px; background: var(--surface); border-radius: 99px; overflow: hidden; }
+  .saving-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 99px; width: 0%; transition: width .3s ease; }
 
   /* ── DONE ── */
   .done-section { padding: 2rem 1.8rem; text-align: center; display: none; animation: popIn .5s cubic-bezier(.34,1.56,.64,1) both; }
@@ -283,38 +197,27 @@
 
   .spinner { width: 16px; height: 16px; border: 2px solid #0004; border-top-color: #000; border-radius: 50%; animation: spin .7s linear infinite; display: inline-block; vertical-align: middle; }
 
-  @keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeUp   { from { opacity: 0; transform: translateY(14px); }  to { opacity: 1; transform: translateY(0); } }
-  @keyframes popIn    { from { opacity: 0; transform: scale(.85); }         to { opacity: 1; transform: scale(1); } }
-  @keyframes spin     { to { transform: rotate(360deg); } }
-  @keyframes pulse    { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-  @keyframes blink    { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(14px)}  to{opacity:1;transform:translateY(0)} }
+  @keyframes popIn    { from{opacity:0;transform:scale(.85)}        to{opacity:1;transform:scale(1)} }
+  @keyframes spin     { to{transform:rotate(360deg)} }
+  @keyframes pulse    { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+  @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:.25} }
 
-  @media (max-width: 500px) {
-    .media-card { flex-direction: column; }
-    .thumb-wrap { width: 100%; height: 140px; }
-    .url-row, .dl-row, .done-row, .settings-row { flex-direction: column; }
+  @media (max-width:500px) {
+    .media-card{flex-direction:column} .thumb-wrap{width:100%;height:140px}
+    .url-row,.dl-row,.done-row{flex-direction:column}
   }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- SETTINGS BAR -->
-  <div class="settings-bar">
-    <button class="settings-toggle" onclick="toggleSettings()">⚙ Server Settings</button>
-    <div class="settings-panel" id="settingsPanel">
-      <div class="settings-title">⌁ ngrok / Server URL</div>
-      <div class="settings-row">
-        <input class="settings-input" id="serverInput" type="url"
-          placeholder="https://xxxx-xxxx.ngrok-free.app"/>
-        <button class="btn btn-accent2 btn-sm" onclick="saveServer()">Save</button>
-        <button class="btn btn-ghost btn-sm" onclick="testServer()">Test</button>
-      </div>
-      <div class="server-status">
-        <div class="s-dot" id="statusDot"></div>
-        <span id="statusText">Not configured — paste your ngrok URL above</span>
-      </div>
+  <!-- OFFLINE BANNER (shown if server unreachable) -->
+  <div class="offline-banner" id="offlineBanner">
+    <div class="offline-inner">
+      <div class="offline-dot"></div>
+      <div class="offline-text"><strong>Server offline.</strong> Make sure your laptop is running <code>npm start</code> and <code>ngrok http 3000</code>.</div>
     </div>
   </div>
 
@@ -329,8 +232,15 @@
   <main class="main-card">
     <div class="glass">
 
+      <!-- URL INPUT -->
       <div class="input-section">
-        <label class="input-label" for="urlInput">⌁ Paste URL</label>
+        <div class="input-top">
+          <span class="input-label">⌁ Paste URL</span>
+          <div class="server-chip" id="serverChip">
+            <span class="chip-dot"></span>
+            <span id="serverChipText">checking…</span>
+          </div>
+        </div>
         <div class="url-row">
           <input id="urlInput" class="url-input" type="url" placeholder="https://youtube.com/watch?v=..."/>
           <button class="btn btn-primary" id="fetchBtn" onclick="fetchInfo()">
@@ -339,15 +249,9 @@
         </div>
       </div>
 
-      <!-- NO SERVER WARNING -->
-      <div class="no-server visible" id="noServer">
-        <div class="no-server-title">⚠ Server Not Configured</div>
-        <p>Click <strong>⚙ Server Settings</strong> at the top → paste your <strong>ngrok URL</strong> → hit <strong>Save</strong>. You only need to do this once per session.</p>
-      </div>
-
       <!-- ERROR -->
       <div class="error-bar" id="errorBar">
-        <span>⚠</span><span id="errorMsg">Something went wrong.</span>
+        <span>⚠</span><span id="errorMsg"></span>
       </div>
 
       <!-- INFO -->
@@ -387,23 +291,34 @@
       <div class="progress-section" id="progressSection">
         <div class="progress-header">
           <div class="progress-label">
-            <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:blink 1.4s ease infinite"></span>
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--accent2);animation:blink 1.4s ease infinite;display:inline-block"></span>
             Downloading…
           </div>
           <div class="progress-pct" id="progressPct">0%</div>
         </div>
         <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
-        <div class="progress-file" id="progressFile">Preparing…</div>
+        <div class="progress-sub" id="progressSub">Preparing…</div>
+      </div>
+
+      <!-- SAVING (auto-download in progress) -->
+      <div class="saving-section" id="savingSection">
+        <div class="saving-inner">
+          <div class="saving-icon">⬇</div>
+          <div class="saving-title">Saving to Device…</div>
+          <div class="saving-sub" id="savingSub">Fetching file…</div>
+          <div class="saving-bar-track">
+            <div class="saving-bar-fill" id="savingBarFill"></div>
+          </div>
+        </div>
       </div>
 
       <!-- DONE -->
       <div class="done-section" id="doneSection">
         <div class="done-icon">✦</div>
-        <div class="done-title">Download Ready</div>
-        <div class="done-meta" id="doneMeta">File is ready to save.</div>
+        <div class="done-title">Saved!</div>
+        <div class="done-meta" id="doneMeta">File saved to your Downloads folder.</div>
         <div class="done-row">
-          <button class="btn btn-primary" onclick="saveFile()">⬇ Save File</button>
-          <button class="btn btn-ghost" onclick="reset()">↺ New Download</button>
+          <button class="btn btn-ghost" onclick="reset()">↺ Download Another</button>
         </div>
       </div>
 
@@ -414,152 +329,108 @@
 </div>
 
 <script>
-// ── ngrok bypass header (skips ngrok's browser warning page) ───────────────
-const NGROK_H = { 'ngrok-skip-browser-warning': 'true' };
+// ─────────────────────────────────────────────────────────────────────────────
+// CONFIG — update this when your ngrok URL changes
+// ─────────────────────────────────────────────────────────────────────────────
+const BASE = 'https://salt-twelve-spouse.ngrok-free.dev';
 
-// ── State ──────────────────────────────────────────────────────────────────
-let state = { mode: 'video', formats: [], selectedFormat: null, jobId: null, ext: null, fileMb: null };
+// ngrok requires this header to bypass its interstitial warning page
+const NH = { 'ngrok-skip-browser-warning': 'true' };
 
-// ── Server URL helpers (persisted in localStorage) ─────────────────────────
-function getBase() {
-  return (localStorage.getItem('ultraServerUrl') || '').trim().replace(/\/$/, '');
-}
+// ── State ─────────────────────────────────────────────────────────────────
+let state = { mode: 'video', formats: [], selectedFormat: '', jobId: null, ext: null, fileTitle: 'download' };
 
-function loadSavedServer() {
-  const saved = localStorage.getItem('ultraServerUrl') || '';
-  if (saved) {
-    document.getElementById('serverInput').value = saved;
-    checkServerWarning();
-    testServer();          // auto-test on load
-  }
-}
-
-function checkServerWarning() {
-  document.getElementById('noServer').classList.toggle('visible', !getBase());
-}
-
-function saveServer() {
-  const val = document.getElementById('serverInput').value.trim().replace(/\/$/, '');
-  if (!val) { setStatus('offline', 'Please enter your ngrok URL first'); return; }
-  localStorage.setItem('ultraServerUrl', val);
-  checkServerWarning();
-  testServer();
-}
-
-async function testServer() {
-  const base = getBase();
-  if (!base) { setStatus('', 'Not configured — paste your ngrok URL above'); return; }
-  setStatus('checking', 'Testing connection…');
+// ── Server health check on load ───────────────────────────────────────────
+async function checkServer() {
   try {
-    const res = await fetch(`${base}/status`, { headers: NGROK_H });
+    const res = await fetch(`${BASE}/status`, { headers: NH });
     if (res.ok) {
       const d = await res.json();
-      setStatus('online', `✓ Online · ${d.active}/${d.max} active downloads`);
-    } else {
-      setStatus('offline', 'Server responded with an error');
-    }
-  } catch {
-    setStatus('offline', '✗ Cannot reach server — is ngrok running on your laptop?');
-  }
+      setChip(true, `Server online · ${d.active}/${d.max}`);
+      document.getElementById('offlineBanner').classList.remove('visible');
+    } else { setChip(false, 'Server error'); showOffline(); }
+  } catch { setChip(false, 'Server offline'); showOffline(); }
 }
 
-function setStatus(type, text) {
-  const dot = document.getElementById('statusDot');
-  dot.className = 's-dot';
-  if (type) dot.classList.add(type);
-  document.getElementById('statusText').textContent = text;
+function setChip(online, text) {
+  const chip = document.getElementById('serverChip');
+  chip.className = 'server-chip' + (online ? ' online' : '');
+  document.getElementById('serverChipText').textContent = text;
+}
+function showOffline() {
+  document.getElementById('offlineBanner').classList.add('visible');
 }
 
-function toggleSettings() {
-  const p = document.getElementById('settingsPanel');
-  p.classList.toggle('open');
-  if (p.classList.contains('open') && !getBase()) {
-    setTimeout(() => document.getElementById('serverInput').focus(), 50);
-  }
-}
-
-// ── Helpers ────────────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────
 function fmtDuration(s) {
   if (!s) return '—';
   const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), sec = s%60;
-  return h ? `${h}:${pad(m)}:${pad(sec)}` : `${m}:${pad(sec)}`;
+  return h ? `${h}:${p(m)}:${p(sec)}` : `${m}:${p(sec)}`;
 }
-function pad(n) { return String(n).padStart(2,'0'); }
+function p(n) { return String(n).padStart(2,'0'); }
 
 function showError(msg) { document.getElementById('errorMsg').textContent = msg; document.getElementById('errorBar').classList.add('visible'); }
 function hideError()    { document.getElementById('errorBar').classList.remove('visible'); }
-
 function setFetchLoading(on) {
   document.getElementById('fetchBtnText').innerHTML = on ? '<span class="spinner"></span>' : 'Fetch';
   document.getElementById('fetchBtn').disabled = on;
   document.getElementById('urlInput').disabled = on;
 }
+function show(id) { const e = document.getElementById(id); e.style.display=''; e.classList.add('visible'); }
+function hide(id) { const e = document.getElementById(id); e.style.display='none'; e.classList.remove('visible'); }
 
-function show(id) { const el = document.getElementById(id); el.style.display = ''; el.classList.add('visible'); }
-function hide(id) { const el = document.getElementById(id); el.style.display = 'none'; el.classList.remove('visible'); }
-
-// ── Fetch Info ─────────────────────────────────────────────────────────────
+// ── Fetch Info ────────────────────────────────────────────────────────────
 async function fetchInfo() {
-  const base = getBase();
-  if (!base) {
-    document.getElementById('settingsPanel').classList.add('open');
-    showError('Configure your server URL first (⚙ Server Settings above).');
-    return;
-  }
   const url = document.getElementById('urlInput').value.trim();
   if (!url) { showError('Please paste a video URL first.'); return; }
 
   hideError();
   setFetchLoading(true);
-  hide('infoSection'); hide('progressSection'); hide('doneSection');
+  hide('infoSection'); hide('progressSection'); hide('savingSection'); hide('doneSection');
   document.getElementById('divider1').style.display = 'none';
   document.getElementById('divider2').style.display = 'none';
 
   try {
-    const res  = await fetch(`${base}/info?url=${encodeURIComponent(url)}`, { headers: NGROK_H });
+    const res  = await fetch(`${BASE}/info?url=${encodeURIComponent(url)}`, { headers: NH });
     const data = await res.json();
     if (!res.ok) { showError(data.error || 'Failed to fetch info.'); return; }
     renderInfo(data);
   } catch {
-    showError('Cannot reach server. Make sure both npm start and ngrok are running on your laptop.');
-  } finally {
-    setFetchLoading(false);
-  }
+    showError('Cannot reach server. Make sure your laptop is running npm start and ngrok.');
+    checkServer();
+  } finally { setFetchLoading(false); }
 }
 
 function renderInfo(data) {
   const tw = document.getElementById('thumbWrap');
   const tp = document.getElementById('thumbPlaceholder');
-  const oldImg = tw.querySelector('img');
-  if (oldImg) oldImg.remove();
+  const old = tw.querySelector('img'); if (old) old.remove();
   tp.style.display = '';
-
   if (data.thumbnail) {
     const img = document.createElement('img');
-    img.src = data.thumbnail; img.alt = 'thumbnail';
-    tp.style.display = 'none';
-    tw.insertBefore(img, tp);
+    img.src = data.thumbnail; img.alt = 'thumb';
+    tp.style.display = 'none'; tw.insertBefore(img, tp);
   }
   document.getElementById('mediaTitle').textContent   = data.title;
   document.getElementById('metaUploader').textContent = data.uploader;
   document.getElementById('metaDuration').textContent = fmtDuration(data.duration);
   document.getElementById('metaPlatform').textContent = data.platform;
-
+  state.fileTitle = (data.title || 'download').replace(/[\\/:*?"<>|]/g,'_').trim();
   state.formats = data.formats || [];
   buildFormatGrid();
   document.getElementById('divider1').style.display = '';
   show('infoSection');
 }
 
-// ── Mode ───────────────────────────────────────────────────────────────────
+// ── Mode ──────────────────────────────────────────────────────────────────
 function setMode(m) {
   state.mode = m;
-  document.getElementById('modeVideo').classList.toggle('active', m === 'video');
-  document.getElementById('modeAudio').classList.toggle('active', m === 'audio');
-  document.getElementById('formatSection').style.display = m === 'video' ? '' : 'none';
+  document.getElementById('modeVideo').classList.toggle('active', m==='video');
+  document.getElementById('modeAudio').classList.toggle('active', m==='audio');
+  document.getElementById('formatSection').style.display = m==='video' ? '' : 'none';
 }
 
-// ── Format Grid ────────────────────────────────────────────────────────────
+// ── Format Grid ───────────────────────────────────────────────────────────
 function buildFormatGrid() {
   const grid = document.getElementById('formatGrid');
   grid.innerHTML = '';
@@ -567,29 +438,23 @@ function buildFormatGrid() {
   auto.className = 'format-chip selected'; auto.dataset.id = '';
   auto.innerHTML = 'Best Auto<span class="chip-ext">mp4</span>';
   auto.onclick = () => selectFormat(auto, '');
-  grid.appendChild(auto);
-  state.selectedFormat = '';
+  grid.appendChild(auto); state.selectedFormat = '';
 
-  [...state.formats].filter(f => f.hasVideo).sort((a,b) => b.height - a.height).forEach(f => {
-    const chip = document.createElement('div');
-    chip.className = 'format-chip'; chip.dataset.id = f.id;
-    chip.innerHTML = `${f.label || (f.height ? f.height+'p' : '?')}<span class="chip-ext">${f.ext}</span>`;
-    chip.onclick = () => selectFormat(chip, f.id);
-    grid.appendChild(chip);
+  [...state.formats].filter(f=>f.hasVideo).sort((a,b)=>b.height-a.height).forEach(f => {
+    const c = document.createElement('div'); c.className='format-chip'; c.dataset.id=f.id;
+    c.innerHTML = `${f.label||(f.height?f.height+'p':'?')}<span class="chip-ext">${f.ext}</span>`;
+    c.onclick = () => selectFormat(c, f.id); grid.appendChild(c);
   });
 }
-
 function selectFormat(el, id) {
-  document.querySelectorAll('.format-chip').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.format-chip').forEach(c=>c.classList.remove('selected'));
   el.classList.add('selected'); state.selectedFormat = id;
 }
 
-// ── Download ───────────────────────────────────────────────────────────────
+// ── Start Download ────────────────────────────────────────────────────────
 async function startDownload() {
-  const base = getBase();
-  const url  = document.getElementById('urlInput').value.trim();
-  if (!base || !url) return;
-
+  const url = document.getElementById('urlInput').value.trim();
+  if (!url) return;
   hideError();
   hide('doneSection');
   document.getElementById('divider2').style.display = '';
@@ -598,100 +463,146 @@ async function startDownload() {
   document.getElementById('dlBtn').disabled = true;
 
   try {
-    const res = await fetch(`${base}/download`, {
+    const res = await fetch(`${BASE}/download`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', ...NGROK_H },
+      headers: { 'Content-Type': 'application/json', ...NH },
       body: JSON.stringify({
-        url,
-        audio: state.mode === 'audio',
-        quality: state.mode === 'video' && state.selectedFormat ? state.selectedFormat : undefined,
+        url, audio: state.mode === 'audio',
+        quality: state.mode==='video' && state.selectedFormat ? state.selectedFormat : undefined,
       }),
     });
     const data = await res.json();
-    if (!res.ok) { showError(data.error || 'Download failed.'); document.getElementById('dlBtn').disabled = false; return; }
+    if (!res.ok) { showError(data.error||'Download failed.'); document.getElementById('dlBtn').disabled=false; return; }
     state.jobId = data.id;
-    state.ext   = state.mode === 'audio' ? 'mp3' : 'mp4';
+    state.ext   = state.mode==='audio' ? 'mp3' : 'mp4';
     listenProgress(data.id);
-  } catch {
-    showError('Cannot reach server.'); document.getElementById('dlBtn').disabled = false;
-  }
+  } catch { showError('Cannot reach server.'); document.getElementById('dlBtn').disabled=false; }
 }
 
+// ── Progress ──────────────────────────────────────────────────────────────
 function updateProgress(pct, label) {
   document.getElementById('progressPct').textContent = `${pct}%`;
   document.getElementById('barFill').style.width = `${pct}%`;
-  document.getElementById('progressFile').textContent = label || '';
+  document.getElementById('progressSub').textContent = label || '';
 }
 
-// ── SSE (ngrok bypass via query param since EventSource has no custom headers)
 function listenProgress(id) {
-  const base = getBase();
-  const es = new EventSource(`${base}/progress/${id}?ngrok-skip-browser-warning=true`);
+  // Append ngrok bypass as query param — EventSource doesn't support custom headers
+  const es = new EventSource(`${BASE}/progress/${id}?ngrok-skip-browser-warning=true`);
   let pollTimer;
 
-  es.addEventListener('progress', e => { const d = JSON.parse(e.data); updateProgress(d.progress, `Downloading… ${d.progress}%`); });
-  es.addEventListener('done',     e => { const d = JSON.parse(e.data); es.close(); clearInterval(pollTimer); onDone(d.id, d.mb); });
+  es.addEventListener('progress', e => {
+    const d = JSON.parse(e.data);
+    updateProgress(d.progress, `Downloading… ${d.progress}%`);
+  });
+  es.addEventListener('done', e => {
+    const d = JSON.parse(e.data);
+    es.close(); clearInterval(pollTimer);
+    onServerDone(d.id, d.mb);
+  });
   es.addEventListener('dl_error', e => {
     const d = JSON.parse(e.data); es.close(); clearInterval(pollTimer);
     showError(d.error); hide('progressSection');
-    document.getElementById('divider2').style.display = 'none';
-    document.getElementById('dlBtn').disabled = false;
+    document.getElementById('divider2').style.display='none';
+    document.getElementById('dlBtn').disabled=false;
   });
-  es.onerror = () => { es.close(); pollTimer = setInterval(() => pollFallback(id, pollTimer), 1500); };
+  es.onerror = () => { es.close(); pollTimer = setInterval(()=>pollFallback(id,pollTimer),1500); };
 }
 
 async function pollFallback(id, timer) {
   try {
-    const res = await fetch(`${getBase()}/poll/${id}`, { headers: NGROK_H });
+    const res = await fetch(`${BASE}/poll/${id}`, { headers: NH });
     const d   = await res.json();
     if (d.error) {
       clearInterval(timer); showError(d.error); hide('progressSection');
-      document.getElementById('dlBtn').disabled = false;
-    } else if (d.done) {
-      clearInterval(timer); onDone(id, d.mb);
-    } else {
-      updateProgress(d.progress || 0, `Downloading… ${d.progress || 0}%`);
-    }
+      document.getElementById('dlBtn').disabled=false;
+    } else if (d.done) { clearInterval(timer); onServerDone(id, d.mb); }
+    else { updateProgress(d.progress||0, `Downloading… ${d.progress||0}%`); }
   } catch {}
 }
 
-function onDone(id, mb) {
-  state.jobId = id; state.fileMb = mb;
+// ── Auto-Save via Blob (no browser warning, no extra click) ───────────────
+async function onServerDone(id, mb) {
+  // Switch from progress → saving screen
   updateProgress(100, 'Complete!');
-  setTimeout(() => {
-    hide('progressSection');
+  await sleep(400);
+  hide('progressSection');
+  show('savingSection');
+  document.getElementById('savingSub').textContent = mb ? `Fetching ${mb} MB…` : 'Fetching file…';
+  animateSavingBar();
+
+  try {
+    // Fetch the file as a blob — this avoids the cross-origin download warning
+    const res = await fetch(`${BASE}/file/${id}`, { headers: NH });
+    if (!res.ok) throw new Error('File fetch failed');
+
+    const blob = await res.blob();
+
+    // Determine filename from Content-Disposition if available, else use title
+    let filename = `${state.fileTitle}.${state.ext}`;
+    const cd = res.headers.get('content-disposition');
+    if (cd) {
+      const m = cd.match(/filename\*?=(?:UTF-8'')?["']?([^;"'\n]+)/i);
+      if (m) filename = decodeURIComponent(m[1].replace(/['"]/g,''));
+    }
+
+    // Create a temporary object URL and click it — silent, no popup
+    const objectUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = objectUrl; a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+
+    // Clean up the object URL after a short delay
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
+
+    // Show done screen
+    hide('savingSection');
+    document.getElementById('doneMeta').textContent =
+      mb ? `${mb} MB · Saved to your Downloads folder` : 'Saved to your Downloads folder';
     document.getElementById('divider2').style.display = 'none';
-    document.getElementById('doneMeta').textContent = mb ? `${mb} MB · Ready to save` : 'Ready to save';
     show('doneSection');
+  } catch(err) {
+    hide('savingSection');
+    showError('File downloaded on server but could not be saved to your device. Try again.');
+  } finally {
     document.getElementById('dlBtn').disabled = false;
-  }, 700);
+  }
 }
 
-function saveFile() {
-  if (!state.jobId) return;
-  const a = document.createElement('a');
-  a.href = `${getBase()}/file/${state.jobId}`; a.download = '';
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+function animateSavingBar() {
+  const fill = document.getElementById('savingBarFill');
+  fill.style.width = '0%';
+  // Animate to 90% while waiting, then jump to 100 when done
+  let pct = 0;
+  const iv = setInterval(() => {
+    pct = Math.min(90, pct + Math.random() * 8);
+    fill.style.width = pct + '%';
+    if (pct >= 90) clearInterval(iv);
+  }, 300);
+  // Store so we can finish it
+  window._savingBarInterval = iv;
 }
 
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── Reset ─────────────────────────────────────────────────────────────────
 function reset() {
-  state = { mode: 'video', formats: [], selectedFormat: null, jobId: null, ext: null, fileMb: null };
+  state = { mode:'video', formats:[], selectedFormat:'', jobId:null, ext:null, fileTitle:'download' };
   document.getElementById('urlInput').value = '';
-  hide('infoSection'); hide('progressSection'); hide('doneSection');
+  hide('infoSection'); hide('progressSection'); hide('savingSection'); hide('doneSection');
   document.getElementById('divider1').style.display = 'none';
   document.getElementById('divider2').style.display = 'none';
   hideError();
   const tw = document.getElementById('thumbWrap');
-  const img = tw.querySelector('img');
-  if (img) img.remove();
+  const img = tw.querySelector('img'); if (img) img.remove();
   document.getElementById('thumbPlaceholder').style.display = '';
   setMode('video');
 }
 
-document.getElementById('urlInput').addEventListener('keydown', e => { if (e.key === 'Enter') fetchInfo(); });
+document.getElementById('urlInput').addEventListener('keydown', e => { if(e.key==='Enter') fetchInfo(); });
 
-// ── Init ───────────────────────────────────────────────────────────────────
-loadSavedServer();
+// ── Init ──────────────────────────────────────────────────────────────────
+checkServer();
 </script>
 </body>
 </html>
