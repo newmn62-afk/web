@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexLoad – Free Video & Audio Downloader | YouTube, TikTok, Instagram</title>
+  <meta name="description" content="NexLoad is a free online video and audio downloader. Download MP4 videos or MP3 audio from YouTube, TikTok, Instagram, Twitter, Facebook and 1000+ sites. No signup required." />
+  <meta name="keywords" content="video downloader, youtube downloader, mp4 downloader, mp3 downloader, tiktok downloader, instagram downloader, twitter video download, free video download, online downloader, audio downloader, download youtube video" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nexload.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NexLoad – Free Video & Audio Downloader" />
+  <meta property="og:description" content="Download videos and audio from YouTube, TikTok, Instagram and 1000+ sites. Free, fast, no signup." />
+  <meta property="og:url" content="https://nexload.vercel.app/" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"NexLoad","url":"https://nexload.vercel.app","description":"Free online video and audio downloader supporting 1000+ sites","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+  <!-- ─── PWA ─────────────────────────────────────────────────────── -->
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="NexLoad" />
+  <meta name="application-name" content="NexLoad" />
+  <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22NexLoad%20%E2%80%93%20Video%20Downloader%22%2C%22short_name%22%3A%22NexLoad%22%2C%22description%22%3A%22Free%20video%20%26%20audio%20downloader%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%230a0a0f%22%2C%22theme_color%22%3A%22%230a0a0f%22%2C%22orientation%22%3A%22portrait%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIj48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgcng9IjQwIiBmaWxsPSIjMGEwYTBmIi8%2BPGNpcmNsZSBjeD0iOTYiIGN5PSI5NiIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSI2Ii8%2BPHBhdGggZD0iTTgwIDcydjQ4bDM4LTI0eiIgZmlsbD0idXJsKCNnKSIvPjxwYXRoIGQ9Ik03MiAxMjBoNDgiIHN0cm9rZT0idXJsKCNnKSIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2M2YmZmIi8%2BPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDBkNGFhIi8%2BPC9saW5lYXJHcmFkaWVudD48L2RlZnM%2BPC9zdmc%2B%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%2C%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzBhMGEwZiIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMTYwIiBmaWxsPSJub25lIiBzdHJva2U9InVybCgjZykiIHN0cm9rZS13aWR0aD0iMTYiLz48cGF0aCBkPSJNMjEyIDE5MnYxMjhsMTAxLTY0eiIgZmlsbD0idXJsKCNnKSIvPjxwYXRoIGQ9Ik0xOTIgMzIwaDEyOCIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjE2IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2M2YmZmIi8%2BPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDBkNGFhIi8%2BPC9saW5lYXJHcmFkaWVudD48L2RlZnM%2BPC9zdmc%2B%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D" />
+
+  <!-- Inline SVG favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230a0a0f'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%237c6bff'/><stop offset='100%25' stop-color='%2300d4aa'/></linearGradient></defs><circle cx='32' cy='30' r='18' fill='none' stroke='url(%23g)' stroke-width='3'/><path d='M26 22v16l13-8z' fill='url(%23g)'/><path d='M24 42h16' stroke='url(%23g)' stroke-width='3' stroke-linecap='round'/></svg>" />
+  <!-- Apple touch icon -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='38' fill='%230a0a0f'/><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%237c6bff'/><stop offset='100%25' stop-color='%2300d4aa'/></linearGradient></defs><circle cx='90' cy='86' r='52' fill='none' stroke='url(%23g)' stroke-width='7'/><path d='M73 62v48l38-24z' fill='url(%23g)'/><path d='M68 118h44' stroke='url(%23g)' stroke-width='7' stroke-linecap='round'/></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --s1: #0f0f18;
+      --s2: #14141f;
+      --border: #1f1f30;
+      --border2: #2a2a40;
+      --g: #7c6bff;
+      --g2: #a78bfa;
+      --g3: #c4b5fd;
+      --acc: #00d4aa;
+      --acc2: #00b894;
+      --red: #ff6b6b;
+      --text: #e2e0f0;
+      --muted: #6b6890;
+      --muted2: #4a4868;
+      --r: 12px;
+      --fh: 'Space Grotesk', sans-serif;
+      --fm: 'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--fh);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* noise overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+      opacity: .03; pointer-events: none; z-index: 0;
+    }
+
+    /* gradient mesh */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124,107,255,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,212,170,.08) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+    /* ─── Header ─── */
+    header { padding: 32px 0 0; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-family: var(--fh); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
+    .logo-nex { color: var(--g2); }
+    .logo-load { color: var(--text); }
+    .server-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--s2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 6px 14px;
+      font-family: var(--fm); font-size: .7rem; color: var(--muted);
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted2); transition: all .3s; }
+    .dot.on { background: var(--acc); box-shadow: 0 0 6px var(--acc); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* ─── Hero ─── */
+    .hero { text-align: center; padding: 56px 0 36px; }
+    h1 {
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+    h1 .hl {
+      background: linear-gradient(135deg, var(--g2) 0%, var(--acc) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub { color: var(--muted); font-size: .92rem; max-width: 480px; margin: 0 auto 28px; line-height: 1.75; }
+    .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 0; }
+    .pill {
+      background: var(--s2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 3px 12px;
+      font-size: .68rem; color: var(--muted); letter-spacing: .4px; text-transform: uppercase;
+    }
+
+    /* ─── Main card ─── */
+    .card {
+      background: var(--s1);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 32px;
+      box-shadow: 0 0 0 1px rgba(124,107,255,.05), 0 40px 80px rgba(0,0,0,.4);
+    }
+
+    /* ─── Dual toggles row ─── */
+    .toggles-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .tg-group { display: flex; align-items: center; gap: 10px; }
+    .tg-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-family: var(--fm); white-space: nowrap; }
+    .toggle {
+      display: flex;
+      background: var(--s2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+      padding: 3px;
+      gap: 2px;
+    }
+    .tg-btn {
+      border: none; background: none;
+      font-family: var(--fh); font-size: .78rem; font-weight: 500;
+      color: var(--muted); cursor: pointer;
+      padding: 5px 14px; border-radius: 100px;
+      transition: all .2s; white-space: nowrap;
+    }
+    .tg-btn.active { background: var(--g); color: #fff; font-weight: 600; }
+    .tg-btn.active.acc { background: var(--acc2); color: #fff; }
+
+    /* Method descriptors */
+    .method-desc {
+      font-size: .68rem; color: var(--muted); font-family: var(--fm);
+      padding: 8px 20px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(124,107,255,.03);
+      min-height: 34px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .method-desc .tag {
+      background: rgba(124,107,255,.12); color: var(--g3);
+      border-radius: 4px; padding: 1px 7px; font-size: .65rem; font-weight: 600;
+    }
+    .method-desc.dm2 .tag { background: rgba(0,212,170,.1); color: var(--acc); }
+    .method-desc.dm3 .tag { background: rgba(255,107,107,.1); color: var(--red); }
+
+    /* ─── URL input ─── */
+    .input-area { padding: 20px; border-bottom: 1px solid var(--border); }
+    .url-row { display: flex; gap: 8px; }
+    .url-input {
+      flex: 1; background: var(--s2); border: 1px solid var(--border);
+      border-radius: 10px; color: var(--text);
+      font-family: var(--fm); font-size: .85rem;
+      padding: 12px 16px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .url-input:focus { border-color: var(--g); box-shadow: 0 0 0 3px rgba(124,107,255,.12); }
+    .url-input::placeholder { color: var(--muted2); }
+    .btn-fetch {
+      background: linear-gradient(135deg, var(--g), var(--g2));
+      color: #fff; border: none; border-radius: 10px;
+      padding: 12px 22px; font-family: var(--fh); font-weight: 600;
+      font-size: .88rem; cursor: pointer;
+      transition: opacity .2s, transform .1s; white-space: nowrap;
+    }
+    .btn-fetch:hover { opacity: .88; }
+    .btn-fetch:active { transform: scale(.97); }
+    .btn-fetch:disabled { opacity: .35; cursor: not-allowed; }
+
+    /* ─── Preview ─── */
+    .preview { padding: 20px; display: none; border-bottom: 1px solid var(--border); }
+    .preview.show { display: block; }
+    .preview-inner { display: flex; gap: 18px; align-items: flex-start; }
+    .thumb { flex-shrink: 0; width: 148px; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; background: var(--s2); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .meta { flex: 1; min-width: 0; }
+    .meta-title { font-weight: 600; font-size: .95rem; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .meta-sub { font-size: .72rem; color: var(--muted); font-family: var(--fm); margin-bottom: 16px; }
+
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--g), var(--g2));
+      color: #fff; border: none; border-radius: 9px;
+      padding: 10px 20px; font-family: var(--fh); font-weight: 600;
+      font-size: .85rem; cursor: pointer;
+      transition: opacity .2s; text-decoration: none;
+    }
+    .dl-btn:hover { opacity: .85; }
+    .dl-btn:disabled { opacity: .3; cursor: not-allowed; }
+    .dl-btn.acc { background: linear-gradient(135deg, var(--acc2), var(--acc)); }
+
+    .progress-wrap { margin-top: 14px; display: none; }
+    .progress-wrap.show { display: block; }
+    .prog-bg { height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 6px; }
+    .prog-bar { height: 100%; background: linear-gradient(90deg, var(--g), var(--acc)); border-radius: 3px; width: 0%; transition: width .4s; }
+    .prog-lbl { font-size: .7rem; color: var(--muted); font-family: var(--fm); }
+
+    /* ─── Status ─── */
+    .status { padding: 10px 20px; font-size: .78rem; font-family: var(--fm); display: none; align-items: center; gap: 8px; }
+    .status.show { display: flex; }
+    .status.err { color: var(--red); background: rgba(255,107,107,.04); border-top: 1px solid rgba(255,107,107,.1); }
+    .status.ok { color: var(--acc); background: rgba(0,212,170,.04); border-top: 1px solid rgba(0,212,170,.1); }
+    .status.loading { color: var(--muted); border-top: 1px solid var(--border); }
+    .spin { width: 13px; height: 13px; border: 2px solid var(--border2); border-top-color: var(--g); border-radius: 50%; animation: spin .6s linear infinite; flex-shrink: 0; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ─── How to use ─── */
+    section { margin-top: 52px; }
+    .sec-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -.5px; margin-bottom: 6px; }
+    .sec-sub { color: var(--muted); font-size: .85rem; margin-bottom: 24px; }
+    .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+    .gcard {
+      background: var(--s1); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 20px;
+      transition: border-color .2s, transform .2s;
+    }
+    .gcard:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .gcard .num { font-family: var(--fm); font-size: 1.8rem; font-weight: 700; color: var(--g); opacity: .35; line-height: 1; margin-bottom: 10px; }
+    .gcard h3 { font-size: .9rem; font-weight: 600; margin-bottom: 5px; }
+    .gcard p { font-size: .75rem; color: var(--muted); line-height: 1.65; }
+    .badge { display: inline-block; font-size: .62rem; padding: 2px 8px; border-radius: 4px; margin-top: 10px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; font-family: var(--fm); }
+    .badge.purple { background: rgba(124,107,255,.12); color: var(--g3); }
+    .badge.green { background: rgba(0,212,170,.1); color: var(--acc); }
+    .badge.red { background: rgba(255,107,107,.1); color: var(--red); }
+
+    /* ─── FAQ ─── */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .faq-q { font-weight: 600; font-size: .88rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+    .faq-q .arr { color: var(--g2); font-size: 1.2rem; transition: transform .25s; }
+    .faq-item.open .arr { transform: rotate(45deg); }
+    .faq-a { font-size: .78rem; color: var(--muted); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height .3s, padding .3s; }
+    .faq-item.open .faq-a { max-height: 160px; padding-top: 8px; }
+
+    /* ─── Footer ─── */
+    footer { margin-top: 56px; padding: 24px 0 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; font-size: .72rem; color: var(--muted2); flex-wrap: wrap; gap: 8px; }
+
+    @media (max-width: 580px) {
+      .preview-inner { flex-direction: column; }
+      .thumb { width: 100%; }
+      .toggles-row { gap: 8px; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <header>
+    <div class="logo"><span class="logo-nex">Nex</span><span class="logo-load">Load</span></div>
+    <div class="server-badge">
+      <div class="dot" id="dot"></div>
+      <span id="serverStatus">connecting…</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Video Downloader">
+    <h1>Download <span class="hl">Any Video.</span><br/>Any Format.</h1>
+    <p class="hero-sub">Paste a link from YouTube, TikTok, Instagram, Twitter or 1000+ sites — get MP4 or MP3 in seconds, completely free.</p>
+    <div class="pills">
+      <span class="pill">YouTube</span><span class="pill">TikTok</span><span class="pill">Instagram</span>
+      <span class="pill">Twitter / X</span><span class="pill">Facebook</span><span class="pill">Vimeo</span>
+      <span class="pill">Reddit</span><span class="pill">Twitch</span><span class="pill">SoundCloud</span><span class="pill">1000+ more</span>
+    </div>
+  </section>
+
+  <!-- Main card -->
+  <main class="card" role="main">
+
+    <!-- Dual toggles -->
+    <div class="toggles-row">
+      <!-- Format toggle -->
+      <div class="tg-group">
+        <span class="tg-label">Format</span>
+        <div class="toggle" role="group" aria-label="Output format">
+          <button class="tg-btn active" id="tgMp4" onclick="setFormat('mp4')">📹 MP4</button>
+          <button class="tg-btn" id="tgMp3" onclick="setFormat('mp3')">🎵 MP3</button>
+        </div>
+      </div>
+      <!-- Method toggle -->
+      <div class="tg-group">
+        <span class="tg-label">Server</span>
+        <div class="toggle" role="group" aria-label="Download method">
+          <button class="tg-btn active" id="tgBest" onclick="setMethod('best')">⚡ Best</button>
+          <button class="tg-btn" id="tgDirect" onclick="setMethod('direct')">🚀 Direct</button>
+          <button class="tg-btn" id="tgOther" onclick="setMethod('other')">🔀 Other</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Method description -->
+    <div class="method-desc" id="methodDesc">
+      <span class="tag">BEST</span>
+      yt-dlp + ffmpeg — downloads separate video &amp; audio streams, merges into perfect MP4/MP3. Highest quality, takes a moment longer.
+    </div>
+
+    <!-- URL input -->
+    <div class="input-area">
+      <div class="url-row">
+        <input type="url" class="url-input" id="urlInput"
+          placeholder="Paste video URL — YouTube, TikTok, Instagram, Twitter…"
+          aria-label="Video URL" autocomplete="off" />
+        <button class="btn-fetch" id="fetchBtn" onclick="handleFetch()">Fetch →</button>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview" id="preview">
+      <div class="preview-inner">
+        <div class="thumb" id="thumbWrap">
+          <img id="thumb" src="" alt="Video thumbnail" />
+        </div>
+        <div class="meta">
+          <div class="meta-title" id="metaTitle">—</div>
+          <div class="meta-sub" id="metaSub">—</div>
+          <div class="progress-wrap" id="progWrap">
+            <div class="prog-bg"><div class="prog-bar" id="progBar"></div></div>
+            <div class="prog-lbl" id="progLbl">Preparing…</div>
+          </div>
+          <button class="dl-btn" id="dlBtn" onclick="handleDownload()" disabled style="margin-top:14px">
+            ↓ Download
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="status" id="statusBar" role="status" aria-live="polite">
+      <span class="spin" id="spin" style="display:none"></span>
+      <span id="statusMsg"></span>
+    </div>
+
+  </main>
+
+  <!-- How to use -->
+  <section aria-labelledby="how-h">
+    <div class="sec-title" id="how-h">How to use NexLoad</div>
+    <div class="sec-sub">Three steps. No account. No software. Just download.</div>
+    <div class="grid3">
+      <div class="gcard"><div class="num">01</div><h3>Paste your link</h3><p>Copy any video URL from YouTube, TikTok, Instagram, Twitter or 1000+ supported platforms and paste it in the box.</p></div>
+      <div class="gcard"><div class="num">02</div><h3>Choose format &amp; server</h3><p>Toggle <strong>MP4</strong> for video or <strong>MP3</strong> for audio. Select your preferred download engine: Best, Direct, or Other.</p></div>
+      <div class="gcard"><div class="num">03</div><h3>Fetch &amp; Download</h3><p>Click Fetch to load video info, then hit Download. Your file saves with the original video title automatically.</p></div>
+    </div>
+  </section>
+
+  <!-- Methods -->
+  <section aria-labelledby="meth-h">
+    <div class="sec-title" id="meth-h">Three Download Engines</div>
+    <div class="sec-sub">Each server mode is tuned for a different priority — quality, speed, or compatibility.</div>
+    <div class="grid3">
+      <div class="gcard">
+        <div style="font-size:2rem;margin-bottom:12px">⚡</div>
+        <h3>Best Quality</h3>
+        <p>Downloads the highest-resolution video and best audio separately using yt-dlp, then merges them with ffmpeg. True 1080p/4K MP4 with no quality loss. Best for saving or editing.</p>
+        <span class="badge purple">Highest Quality</span>
+      </div>
+      <div class="gcard">
+        <div style="font-size:2rem;margin-bottom:12px">🚀</div>
+        <h3>Direct Stream</h3>
+        <p>Resolves a single direct CDN stream URL from the video platform. Your browser downloads it straight from the source — the server barely gets involved. Fastest option available.</p>
+        <span class="badge green">Fastest Speed</span>
+      </div>
+      <div class="gcard">
+        <div style="font-size:2rem;margin-bottom:12px">🔀</div>
+        <h3>Other / Alternative</h3>
+        <p>Uses Cobalt.tools API and multiple yt-dlp fallback strategies. Great for uncommon platforms or when the other two engines fail. Auto-chains through methods until one works.</p>
+        <span class="badge red">Best Compatibility</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section aria-labelledby="faq-h">
+    <div class="sec-title" id="faq-h">Frequently Asked Questions</div>
+    <div class="faq-item"><div class="faq-q" onclick="faq(this)">Is NexLoad completely free? <span class="arr">+</span></div><div class="faq-a">Yes, NexLoad is 100% free. It runs on your own local machine using open-source tools (yt-dlp and ffmpeg), so there are no subscriptions, no ads shown to you by us, and no hidden fees.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="faq(this)">Which sites are supported? <span class="arr">+</span></div><div class="faq-a">NexLoad supports 1000+ sites including YouTube, TikTok, Instagram, Twitter/X, Facebook, Vimeo, Reddit, Twitch, Dailymotion, SoundCloud, and any other site supported by yt-dlp.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="faq(this)">How do I download MP3 audio only? <span class="arr">+</span></div><div class="faq-a">Toggle the Format switch to MP3 before clicking Download. In Best mode, yt-dlp will extract and convert the audio to high-quality MP3 using ffmpeg. In Direct and Other modes it finds the best audio stream available.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="faq(this)">Why does the server need to be running? <span class="arr">+</span></div><div class="faq-a">NexLoad's backend (server.js) runs on your local PC and does the heavy lifting — invoking yt-dlp, ffmpeg, and handling downloads. The frontend on Vercel connects to it via an ngrok tunnel. Without the server running, the frontend can't download anything.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="faq(this)">Which mode should I use? <span class="arr">+</span></div><div class="faq-a">Use <strong>Best</strong> when you want maximum video quality (1080p+). Use <strong>Direct</strong> when you need speed and the file size doesn't have to be optimal. Use <strong>Other</strong> if the first two methods fail or for obscure platforms.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="faq(this)">Is downloading videos legal? <span class="arr">+</span></div><div class="faq-a">Downloading for personal offline use is accepted in many jurisdictions. Always respect the content creator's rights and the platform's terms of service. NexLoad is a tool — responsibility for how you use it lies with you.</div></div>
+  </section>
+
+  <footer role="contentinfo">
+    <span>© 2025 NexLoad — Free Video & Audio Downloader</span>
+    <span>Powered by yt-dlp · ffmpeg · Cobalt</span>
+  </footer>
+
+</div>
+
+<script>
+// ─── CONFIG — hardcoded ngrok server ──────────────────────────────────────
+const SERVER = 'https://salt-twelve-spouse.ngrok-free.dev';
+
+// ─── State ─────────────────────────────────────────────────────────────────
+let fmt = 'mp4';      // 'mp4' | 'mp3'
+let method = 'best';  // 'best' | 'direct' | 'other'
+let videoInfo = null;
+
+// ─── Method descriptions ───────────────────────────────────────────────────
+const DESC = {
+  best:   ['BEST',   'dm1', 'yt-dlp + ffmpeg — downloads separate video &amp; audio, merges perfectly. True 1080p+ MP4 with real video frames. Highest quality, slightly slower.'],
+  direct: ['DIRECT', 'dm2', 'Resolves a direct single-stream CDN URL — browser downloads straight from the source. No server load, twice as fast. Quality limited to combined streams available.'],
+  other:  ['OTHER',  'dm3', 'Cobalt.tools API → yt-dlp single stream → generic extractor. Auto-chains until something works. Best for uncommon sites or when other methods fail.']
+};
+
+// ─── Init ──────────────────────────────────────────────────────────────────
+window.addEventListener('load', checkServer);
+
+async function checkServer() {
+  try {
+    const r = await fetch(`${SERVER}/`, { signal: AbortSignal.timeout(6000) });
+    if (r.ok) { online(true); } else throw new Error();
+  } catch { online(false); }
+}
+
+function online(yes) {
+  document.getElementById('dot').className = 'dot' + (yes ? ' on' : '');
+  document.getElementById('serverStatus').textContent = yes ? 'server online' : 'server offline';
+}
+
+// ─── Format toggle ─────────────────────────────────────────────────────────
+function setFormat(f) {
+  fmt = f;
+  document.getElementById('tgMp4').className = 'tg-btn' + (f === 'mp4' ? ' active' : '');
+  document.getElementById('tgMp3').className = 'tg-btn' + (f === 'mp3' ? ' active' : '');
+}
+
+// ─── Method toggle ─────────────────────────────────────────────────────────
+function setMethod(m) {
+  method = m;
+  document.getElementById('tgBest').className   = 'tg-btn' + (m === 'best'   ? ' active' : '');
+  document.getElementById('tgDirect').className = 'tg-btn' + (m === 'direct' ? ' active' : '');
+  document.getElementById('tgOther').className  = 'tg-btn' + (m === 'other'  ? ' active' : '');
+
+  const [tag, cls, text] = DESC[m];
+  const el = document.getElementById('methodDesc');
+  el.className = `method-desc ${cls}`;
+  el.innerHTML = `<span class="tag">${tag}</span> ${text}`;
+}
+
+// ─── Fetch info ────────────────────────────────────────────────────────────
+async function handleFetch() {
+  const url = document.getElementById('urlInput').value.trim();
+  if (!url) return setStatus('Paste a video URL first.', 'err');
+
+  setLoading(true, 'Fetching video info…');
+  hidePreview();
+
+  try {
+    const r = await fetch(`${SERVER}/api/info`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url })
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || 'Failed');
+
+    videoInfo = data;
+    showPreview(data);
+    clearStatus();
+    setLoading(false);
+  } catch (e) {
+    setLoading(false);
+    setStatus('Error: ' + e.message, 'err');
+  }
+}
+
+function showPreview(d) {
+  document.getElementById('metaTitle').textContent = d.title || 'Unknown';
+  const dur = d.duration ? `${Math.floor(d.duration/60)}m ${d.duration%60|0}s` : '';
+  document.getElementById('metaSub').textContent =
+    [d.uploader, dur, d.view_count ? Number(d.view_count).toLocaleString()+' views' : ''].filter(Boolean).join(' · ');
+  document.getElementById('thumb').src = d.thumbnail || '';
+  document.getElementById('thumbWrap').style.display = d.thumbnail ? 'block' : 'none';
+  document.getElementById('preview').classList.add('show');
+  document.getElementById('dlBtn').disabled = false;
+}
+
+function hidePreview() {
+  document.getElementById('preview').classList.remove('show');
+  document.getElementById('dlBtn').disabled = true;
+  hideProgress();
+}
+
+// ─── Download dispatcher ───────────────────────────────────────────────────
+async function handleDownload() {
+  const url = document.getElementById('urlInput').value.trim();
+  if (!url || !videoInfo) return;
+  const title = videoInfo.title || 'download';
+
+  if (method === 'best')   await dlBest(url, title);
+  else if (method === 'direct') await dlDirect(url, title);
+  else await dlOther(url, title);
+}
+
+// ─── BEST: server downloads + merges, sends back file ─────────────────────
+async function dlBest(url, title) {
+  setLoading(true, 'Server is downloading & merging…');
+  showProgress('Processing on server…', 20);
+
+  try {
+    const r = await fetch(`${SERVER}/api/download/best`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, type: fmt })
+    });
+
+    if (!r.ok) {
+      const e = await r.json().catch(() => ({}));
+      throw new Error(e.error || `Server error ${r.status}`);
+    }
+
+    showProgress('Receiving file…', 65);
+    const blob = await r.blob();
+    showProgress('Saving…', 100);
+
+    // Extract filename from Content-Disposition
+    const cd = r.headers.get('Content-Disposition') || '';
+    let filename = title + '.' + fmt;
+    const m1 = cd.match(/filename\*=UTF-8''([^;]+)/i);
+    const m2 = cd.match(/filename="([^"]+)"/i);
+    if (m1) filename = decodeURIComponent(m1[1]);
+    else if (m2) filename = m2[1];
+
+    triggerDownload(URL.createObjectURL(blob), filename);
+    setLoading(false);
+    setStatus('✓ Download saved: ' + filename, 'ok');
+  } catch (e) {
+    setLoading(false); hideProgress();
+    setStatus('Best mode failed: ' + e.message, 'err');
+  }
+}
+
+// ─── DIRECT: resolve URL → proxy download ─────────────────────────────────
+async function dlDirect(url, title) {
+  setLoading(true, 'Resolving stream URL…');
+
+  try {
+    const r = await fetch(`${SERVER}/api/stream-url`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, type: fmt })
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || 'Failed to resolve');
+
+    showProgress('Downloading via direct stream…', 50);
+    setLoading(false);
+
+    const safeTitle = data.title || title;
+    const ext = data.ext || fmt;
+    const proxyUrl = `${SERVER}/api/proxy?url=${encodeURIComponent(data.streamUrl)}&filename=${encodeURIComponent(safeTitle)}&ext=${ext}`;
+
+    triggerDownload(proxyUrl, safeTitle + '.' + ext);
+    setStatus('✓ Direct download started: ' + safeTitle + '.' + ext, 'ok');
+    hideProgress();
+  } catch (e) {
+    setLoading(false); hideProgress();
+    setStatus('Direct mode failed: ' + e.message, 'err');
+  }
+}
+
+// ─── OTHER: Cobalt + fallbacks ─────────────────────────────────────────────
+async function dlOther(url, title) {
+  setLoading(true, 'Trying alternative engines…');
+  showProgress('Trying Cobalt → yt-dlp → generic…', 30);
+
+  try {
+    const r = await fetch(`${SERVER}/api/download/other`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, type: fmt })
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || 'All methods failed');
+
+    showProgress('Downloading…', 70);
+    setLoading(false);
+
+    const safeTitle = data.title || title;
+    const ext = data.ext || fmt;
+    const proxyUrl = `${SERVER}/api/proxy?url=${encodeURIComponent(data.downloadUrl)}&filename=${encodeURIComponent(safeTitle)}&ext=${ext}`;
+
+    triggerDownload(proxyUrl, safeTitle + '.' + ext);
+    setStatus(`✓ [${data.method}] Download started: ${safeTitle}.${ext}`, 'ok');
+    hideProgress();
+  } catch (e) {
+    setLoading(false); hideProgress();
+    setStatus('Other mode failed: ' + e.message, 'err');
+  }
+}
+
+// ─── Helpers ───────────────────────────────────────────────────────────────
+function triggerDownload(href, filename) {
+  const a = document.createElement('a');
+  a.href = href;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => { if (href.startsWith('blob:')) URL.revokeObjectURL(href); }, 30000);
+}
+
+function setStatus(msg, type) {
+  const bar = document.getElementById('statusBar');
+  document.getElementById('statusMsg').textContent = msg;
+  document.getElementById('spin').style.display = type === 'loading' ? 'inline-block' : 'none';
+  bar.className = `status show ${type}`;
+}
+function clearStatus() { document.getElementById('statusBar').classList.remove('show'); }
+
+function setLoading(on, msg = '') {
+  document.getElementById('fetchBtn').disabled = on;
+  document.getElementById('dlBtn').disabled = on;
+  if (on && msg) setStatus(msg, 'loading');
+}
+
+function showProgress(lbl, pct) {
+  document.getElementById('progWrap').classList.add('show');
+  document.getElementById('progBar').style.width = pct + '%';
+  document.getElementById('progLbl').textContent = lbl;
+}
+function hideProgress() { document.getElementById('progWrap').classList.remove('show'); }
+
+function faq(el) { el.closest('.faq-item').classList.toggle('open'); }
+
+// Enter key
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('urlInput').addEventListener('keydown', e => { if (e.key === 'Enter') handleFetch(); });
+});
+
+// ─── PWA: Service Worker + Install Prompt ──────────────────────────────────
+// Inline service worker via blob URL so no extra file needed
+const SW_CODE = `
+const CACHE = 'nexload-v1';
+const ASSETS = ['/'];
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+});
+self.addEventListener('activate', e => {
+  e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+});
+self.addEventListener('fetch', e => {
+  // For navigation requests serve from cache if offline, otherwise network first
+  if (e.request.mode === 'navigate') {
+    e.respondWith(fetch(e.request).catch(() => caches.match('/')));
+    return;
+  }
+  e.respondWith(fetch(e.request).catch(() => caches.match(e.request)));
+});
+`;
+
+if ('serviceWorker' in navigator) {
+  const blob = new Blob([SW_CODE], { type: 'application/javascript' });
+  const swUrl = URL.createObjectURL(blob);
+  navigator.serviceWorker.register(swUrl, { scope: '/' })
+    .then(r => console.log('[NexLoad] SW registered'))
+    .catch(e => console.log('[NexLoad] SW failed (normal on file://):', e.message));
+}
+
+// Install prompt
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  const banner = document.getElementById('installBanner');
+  banner.style.display = 'flex';
+});
+
+document.getElementById('installBtn').addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  deferredPrompt = null;
+  document.getElementById('installBanner').style.display = 'none';
+  if (outcome === 'accepted') setStatus('✓ NexLoad added to your home screen!', 'ok');
+});
+
+window.addEventListener('appinstalled', () => {
+  document.getElementById('installBanner').style.display = 'none';
+  setStatus('✓ NexLoad installed as app!', 'ok');
+});
+</script>
+
+<!-- Install banner -->
+<div id="installBanner" style="
+  display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+  background:#14141f; border:1px solid #2a2a40; border-radius:16px;
+  padding:14px 20px; align-items:center; gap:14px;
+  box-shadow:0 8px 40px rgba(0,0,0,.6);
+  z-index:999; max-width:380px; width:calc(100% - 32px);
+  font-family:'Space Grotesk',sans-serif;
+">
+  <div style="font-size:1.8rem;flex-shrink:0">📲</div>
+  <div style="flex:1">
+    <div style="font-weight:600;font-size:.88rem;color:#e2e0f0">Add NexLoad to Home Screen</div>
+    <div style="font-size:.72rem;color:#6b6890;margin-top:2px">Use like a native app — works offline</div>
+  </div>
+  <button id="installBtn" style="background:linear-gradient(135deg,#7c6bff,#a78bfa);color:#fff;border:none;border-radius:9px;padding:8px 16px;font-family:inherit;font-weight:600;font-size:.8rem;cursor:pointer;white-space:nowrap;flex-shrink:0;">Install</button>
+  <button onclick="document.getElementById('installBanner').style.display='none'" style="background:none;border:none;color:#4a4868;cursor:pointer;font-size:1.1rem;padding:0;flex-shrink:0;">✕</button>
+</div>
+
+</body>
+</html>
